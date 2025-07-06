@@ -48,14 +48,15 @@ export const ThemeProvider = ({ children }) => {
 // --- END ThemeContext and useTheme Definition ---
 
 // Other component imports (these are conceptually separate components within the single file)
+import { Suspense } from 'react';
 import Header from './components/Header';
 import Hero from './components/Hero';
-import About from './components/About';
-import Education from './components/Education';
-import Skills from './components/Skills';
-import Projects from './components/Projects';
-import Certificates from './components/Certificates';
-import Contact from './components/Contact';
+const About = React.lazy(() => import('./components/About'));
+const Education = React.lazy(() => import('./components/Education'));
+const Skills = React.lazy(() => import('./components/Skills'));
+const Projects = React.lazy(() => import('./components/Projects'));
+const Certificates = React.lazy(() => import('./components/Certificates'));
+const Contact = React.lazy(() => import('./components/Contact'));
 import useCustomCursor from './hooks/useCustomCursor';
 import ParticleBackground from './components/ParticleBackground'; // For 3D effect
 import SectionDivider from './components/SectionDivider'; // New section divider
@@ -122,42 +123,54 @@ const App = () => {
         {/* About Section */}
         <section id="about" className="py-16 sm:py-24 flex flex-col items-center justify-center">
           <SectionDivider type="top" />
-          <About />
+          <Suspense fallback={<div>Loading...</div>}>
+            <About />
+          </Suspense>
           <SectionDivider type="bottom" />
         </section>
 
         {/* Education Section */}
         <section id="education" className="py-16 sm:py-24 flex flex-col items-center justify-center">
           <SectionDivider type="top" />
-          <Education />
+          <Suspense fallback={<div>Loading...</div>}>
+            <Education />
+          </Suspense>
           <SectionDivider type="bottom" />
         </section>
 
         {/* Skills Section */}
         <section id="skills" className="py-16 sm:py-24 flex flex-col items-center justify-center">
           <SectionDivider type="top" />
-          <Skills />
+          <Suspense fallback={<div>Loading...</div>}>
+            <Skills />
+          </Suspense>
           <SectionDivider type="bottom" />
         </section>
 
         {/* Projects Section */}
         <section id="projects" className="py-16 sm:py-24 flex flex-col items-center justify-center">
           <SectionDivider type="top" />
-          <Projects />
+          <Suspense fallback={<div>Loading...</div>}>
+            <Projects />
+          </Suspense>
           <SectionDivider type="bottom" />
         </section>
 
         {/* Certificates Section */}
         <section id="certificates" className="py-16 sm:py-24 flex flex-col items-center justify-center">
           <SectionDivider type="top" />
-          <Certificates />
+          <Suspense fallback={<div>Loading...</div>}>
+            <Certificates />
+          </Suspense>
           <SectionDivider type="bottom" />
         </section>
 
         {/* Contact Section */}
         <section id="contact" className="py-16 sm:py-24 flex flex-col items-center justify-center">
           <SectionDivider type="top" />
-          <Contact />
+          <Suspense fallback={<div>Loading...</div>}>
+            <Contact />
+          </Suspense>
           <SectionDivider type="bottom" />
         </section>
       </main>

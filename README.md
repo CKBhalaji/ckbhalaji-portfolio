@@ -11,6 +11,7 @@ I am a software developer with a passion for creating beautiful and functional w
 - **Email:** [bhalaji2003@gmail.com](mailto:bhalaji2003@gmail.com)
 
 ## Technologies Used
+![image](https://github.com/user-attachments/assets/e1202d9b-f805-40b1-b251-530cb2a5fa43)
 
 This project was built with the following technologies:
 

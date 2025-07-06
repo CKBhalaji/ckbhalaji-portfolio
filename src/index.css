@@ -1,0 +1,112 @@
+  @import "tailwindcss";
+
+  @theme {
+    --font-navename: "Satisfy", cursive;
+    --font-herodesc: "Winky Rough", sans-serif;
+  }
+
+  :root {
+    --base: #1a1a1a;
+    --orbitDotColor: #ec4899;
+    --orbitGradient: linear-gradient(90deg, #8b5cf6, #ec4899);
+    --orbitGradientAlt: linear-gradient(90deg, #ec4899, #8b5cf6);
+    --primary: var(--pH), var(--pS), var(--pL);
+    --secondary: var(--sH), var(--sS), var(--sL);
+    --gradient: linear-gradient(
+      to right,
+      hsl(var(--secondary)),
+      hsl(var(--primary)),
+      hsl(var(--primary)),
+      hsl(var(--secondary))
+    );
+    --gradientLite: linear-gradient(
+      45deg,
+      var(--primaryLite),
+      hsl(var(--secondaryLite))
+    );
+  }
+
+
+  .Hero_Trail {
+    position: absolute;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    animation: spin 6s linear infinite;
+    animation-delay: 1s;
+  }
+
+  .Hero_Trail::before {
+    content: "";
+    width: calc(100% - 1%);
+    aspect-ratio: 1;
+    inset: 0;
+    margin: auto;
+    border-radius: 50%;
+    position: absolute;
+    background-color: black;
+  }
+
+  .Trail1 {
+    width: 60%;
+    background: var(--orbitGradient);
+    z-index: 5;
+  }
+  .Trail2 {
+    width: 70%;
+    animation-duration: 8s;
+    animation-direction: reverse;
+    background: var(--orbitGradientAlt);
+    z-index: 4;
+  }
+  .Trail3 {
+    width: 80%;
+    background: var(--orbitGradient);
+    animation-duration: 10s;
+    z-index: 3;
+  }
+  .Trail4 {
+    width: 90%;
+    animation-duration: 12s;
+    animation-direction: reverse;
+    background: var(--orbitGradientAlt);
+    z-index: 2;
+  }
+  .Orbit_Dot {
+    width: 0.5em;
+    aspect-ratio: 1;
+    background-color: var(--orbitDotColor);
+    border-radius: 0 50% 50%;
+    transform: rotate(-45deg);
+    position: absolute;
+    top: -0.2em;
+    left: 49%;
+    transition: 0.25s ease-in-out;
+    overflow: hidden;
+    box-shadow: 0 0 10px var(--orbitDotColor);
+  }
+  :has(.Hero_Orbit:hover) .Orbit_Dot {
+    background-color: var(--base) !important;
+    outline: 0.5px solid var(--orbitDotColor);
+    /* border-radius: 50% !important; */
+    scale: 1.8;
+  }
+
+  @keyframes spin {
+    0% {
+      rotate: 0deg;
+    }
+
+    100% {
+      rotate: 360deg;
+    }
+  }
+
+  .gradientText {
+    background: var(--gradient);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    background-size: 200%;
+    animation: gradientPan 5s linear infinite;
+    will-change: background-position;
+  }

@@ -1,6 +1,7 @@
 import { useState } from 'react';
 // useTheme is now globally available from App.jsx's top-level scope
 import { useTheme } from '../App';
+import resumePdf from '../assets/Resume/CKBhalaji_Resume.pdf';
 // import { useTheme } from '../context/ThemeContext'; // Removed: useTheme is globally available
 
 const Header = ({ scrollToSection, activeSection }) => {
@@ -62,7 +63,7 @@ const Header = ({ scrollToSection, activeSection }) => {
           </button>
           {/* Resume Download Button */}
           <a
-            href="/path/to/your/resume.pdf" // Placeholder, replace with actual path to resume
+            href={resumePdf}
             download="C.K.BHALAJI_Resume.pdf"
             className={`ml-4 px-4 py-2 rounded-full text-sm font-medium transition-all duration-300
               bg-gradient-to-r from-blue-500 to-purple-600 text-white shadow-md
@@ -131,7 +132,7 @@ const Header = ({ scrollToSection, activeSection }) => {
             ))}
             {/* Resume Download Button for Mobile */}
             <a
-              href="/path/to/your/resume.pdf" // Placeholder, replace with actual path to resume
+              href={resumePdf}
               download="C.K.BHALAJI_Resume.pdf"
               className={`block px-3 py-2 rounded-md text-base font-medium transition-all duration-300
                 bg-gradient-to-r from-blue-500 to-purple-600 text-white shadow-md
